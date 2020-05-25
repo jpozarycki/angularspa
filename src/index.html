@@ -9,5 +9,25 @@
 </head>
 <body>
   <app-root></app-root>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyD3fAKIKdHFGwoG7B7fwdBu30JyXw1g_NM",
+      authDomain: "eversis-challenge.firebaseapp.com",
+      databaseURL: "https://eversis-challenge.firebaseio.com",
+      projectId: "eversis-challenge",
+      storageBucket: "eversis-challenge.appspot.com",
+      messagingSenderId: "712840500501",
+      appId: "1:712840500501:web:b64d7d37322641c904851c"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
 </body>
 </html>
