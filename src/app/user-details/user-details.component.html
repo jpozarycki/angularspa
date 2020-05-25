@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="col-xs-12" *ngIf="(user$ | async) as user; else noUser">
+    <div class="row">
+      <div class="col-xs-12">{{user.name}} {{user.surname}}'s Page</div>
+    </div>
+    <div class="row" *ngIf="(user$ | async).age >= 18; else underageMessage">
+      <div class="alert alert-success col-xs-8">ACCESS</div>
+      <img src="https://as1.ftcdn.net/jpg/02/18/48/10/500_F_218481058_QhFxFXt4X5JRdzSTZUc6H9NC7dvl9zVP.jpg" alt="Success">
+    </div>
+    <ng-template #underageMessage>
+      <div class="alert alert-danger">You must be at least 18 years old!</div>
+    </ng-template>
+  </div>
+  <ng-template #noUser>
+    <div>
+      <h2>No user available</h2>
+      <h4>Please create one to access the content.</h4>
+      <button routerLink="/userData" class="btn btn-primary">Create user</button>
+    </div>
+  </ng-template>
+</div>

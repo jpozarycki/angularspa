@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DataStorageService } from '../common/data-storage/data-storage.service';
+import { DataStorageService } from '../common/data-storage.service';
 import { User } from '../common/types';
 
 @Component({
@@ -18,12 +18,7 @@ export class UserDataComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const user: User = {
-      name: this.userForm.value.name,
-      surname: this.userForm.value.surname,
-      age: this.userForm.value.age
-    };
-    this.dataStorage.saveUser(user);
+    this.dataStorage.saveUser(this.userForm.value as User);
     this.router.navigate(['userDetails']);
   }
 
@@ -37,4 +32,7 @@ export class UserDataComponent implements OnInit {
 
   get letterValidator(): ValidatorFn { return Validators.pattern(/^[A-Za-z]+$/); }
   get numberValidator(): ValidatorFn { return Validators.pattern(/^[1-9]+[0-9]*$/); }
+
+  get name(): string { return this.userForm.value.name; }
+  get surname(): string { return this.userForm.value.surname; }
 }

@@ -1,24 +1,24 @@
 <div class="container">
   <h1>User Data</h1>
   <div class="user-form" *ngIf="userForm">
-    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="userForm">
       <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" formControlName="name">
-        <div class="alert-box" *ngIf="userForm.get('name').invalid && (userForm.get('name').dirty || userForm.get('name').touched)">Invalid Character</div>
+        <label for="name" class="col-md-3">Name</label>
+        <input type="text" class="form-control col-md-6" id="name" formControlName="name">
+        <div class="alert alert-danger col-md-3" *ngIf="userForm.get('name').invalid && (userForm.get('name').dirty || userForm.get('name').touched)">Invalid Character</div>
       </div>
       <div class="form-group">
-        <label for="name">Surname</label>
-        <input type="text" class="form-control" id="surname" formControlName="surname">
-        <div class="alert-box" *ngIf="userForm.get('surname').invalid && (userForm.get('surname').dirty || userForm.get('surname').touched)">Invalid Character</div>
+        <label for="name" class="col-md-3">Surname</label>
+        <input type="text" class="form-control col-md-6" id="surname" formControlName="surname">
+        <div class="alert alert-danger col-md-3" *ngIf="userForm.get('surname').invalid && (userForm.get('surname').dirty || userForm.get('surname').touched)">Invalid Character</div>
       </div>
       <div class="form-group">
-        <label for="name">Age</label>
-        <input type="text" class="form-control" id="age" formControlName="age">
-        <div class="alert-box" *ngIf="userForm.get('age').invalid && (userForm.get('age').dirty || userForm.get('age').touched)">Invalid Character</div>
+        <label for="name" class="col-md-3">Age</label>
+        <input type="text" class="form-control col-md-6" id="age" formControlName="age">
+        <div class="alert alert-danger col-md-3" *ngIf="userForm.get('age').invalid && (userForm.get('age').dirty || userForm.get('age').touched)">Invalid Character</div>
       </div>
-      <div class="hello-box"></div>
-      <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Save</button>
+      <div class="alert alert-success" *ngIf="!userForm.get('name').invalid && !userForm.get('surname').invalid">Hello {{name}} {{surname}}!</div>
+      <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid" (click)="onSubmit()">Save</button>
     </form>
   </div>
 </div>
