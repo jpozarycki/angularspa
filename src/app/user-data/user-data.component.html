@@ -18,7 +18,9 @@
         <div class="alert alert-danger col-md-3" *ngIf="userForm.get('age').invalid && (userForm.get('age').dirty || userForm.get('age').touched)">Invalid Character</div>
       </div>
       <div class="alert alert-success" *ngIf="!userForm.get('name').invalid && !userForm.get('surname').invalid">Hello {{name}} {{surname}}!</div>
-      <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid" (click)="onSubmit()">Save</button>
-    </form>
+      <div class="row">
+        <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid" (click)="onSubmit()">Save</button>
+      </div>
+      </form>
   </div>
 </div>
