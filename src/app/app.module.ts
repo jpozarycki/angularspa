@@ -9,6 +9,7 @@ import { UserDataComponent } from './user-data/user-data.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DataStorageService } from './common/data-storage.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DataStorageService } from './common/data-storage.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [DataStorageService],
   bootstrap: [AppComponent]
