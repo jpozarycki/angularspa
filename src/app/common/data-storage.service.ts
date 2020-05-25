@@ -9,7 +9,7 @@ export class DataStorageService {
   user = new BehaviorSubject<User>(null);
 
   saveUser(user: User): void {
-    return this.user.next(user);
+    this.user.next(user);
   }
 
   getUser(): Observable<User> {
