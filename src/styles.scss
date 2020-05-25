@@ -6,7 +6,10 @@
 * {
   font-family: lato, sans-serif;
   font-size: 1.2rem;
-  border-radius: 0!important;
+}
+
+.form-control, .btn {
+  border-radius: 0;
 }
 
 html,

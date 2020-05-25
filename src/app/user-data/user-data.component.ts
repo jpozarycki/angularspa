@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { DataStorageService } from '../common/data-storage.service';
 import { User } from '../common/types';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-user-data',
@@ -11,15 +12,23 @@ import { User } from '../common/types';
 })
 export class UserDataComponent implements OnInit {
   userForm: FormGroup | undefined;
-  constructor(private readonly fb: FormBuilder, private readonly router: Router, private readonly dataStorage: DataStorageService) { }
+  constructor(private readonly fb: FormBuilder,
+              private readonly router: Router,
+              private readonly dataStorage: DataStorageService,
+              private readonly spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.initForm();
   }
 
   onSubmit(): void {
-    this.dataStorage.saveUser(this.userForm.value as User);
-    this.router.navigate(['userDetails']);
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide().then(() => {
+        this.dataStorage.saveUser(this.userForm.value as User);
+        this.router.navigate(['userDetails']);
+      });
+    }, 1000);
   }
 
   private initForm(): void {
